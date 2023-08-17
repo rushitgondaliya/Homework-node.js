@@ -1,8 +1,8 @@
 {
-  "name": "rushit",
+  "name": "pr1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/index.js"
@@ -12,5 +12,6 @@
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^3.0.1"
-  }
+
+}
 }

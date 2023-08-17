@@ -7,6 +7,7 @@ const createUser = async (req, res) => {
     const reqBody = req.body;
 
       // console.log(reqBody);
+
     // const userExists = await userService.getUserByEmail(reqBody.email);
     // if (userExists) {
     //   throw new Error("User already created by this email!");
