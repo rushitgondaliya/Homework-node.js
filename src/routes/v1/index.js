@@ -3,12 +3,14 @@ const express = require("express");
 const userRoute = require("./user.route");
 const categoryRoute = require("./category.route");
 const BookRoute = require("./book.route");
+const GroceryRoute = require("./Grocery.route")
 
 const router = express.Router();
 
 // router.use("/token", tokenRoutes);
 router.use("/user", userRoute);
-router.use("/Category", categoryRoute);
+router.use("/category", categoryRoute);
 router.use("/Book", BookRoute);
+router.use("/Grocery",GroceryRoute)
 
 module.exports = router;

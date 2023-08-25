@@ -8,12 +8,9 @@ const envVarsSchema = Joi.object({
     MONGODB_URL: Joi.string().trim().description("Mongodb url")
 }).unknown();
 
-
 const { value: envVars, error } = envVarsSchema
   .prefs({ errors: { label: "key" } })
   .validate(process.env);
-
-// console.log(envVars);
 
   module.exports = {
     port: envVars.PORT,

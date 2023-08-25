@@ -1,7 +1,7 @@
 const joi =require("joi")
 
 /** create user */
-const createcategory = {
+const createCategory = {
     body: joi.object().keys({
       category_name: joi.string().required().trim(),
       category_decs: joi.string().required().trim(),
@@ -10,5 +10,5 @@ const createcategory = {
   };
 
   module.exports = {
-    createcategory
+    createCategory
   };

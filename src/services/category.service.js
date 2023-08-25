@@ -5,10 +5,21 @@ const { category } = require("../models");
  * @param {object} reqBody
  * @returns {Promise<category>}
  */
-const createcategory = async (reqBody) => {
+const createCategory = async (reqBody) => {
   return category.create(reqBody);
 };
 
+const getCategoryList = async (req, res) => {
+  return category.find()
+};
+
+const deleteCategory = async (categoryId) => {
+  return category.findByIdAndDelete(categoryId);
+};
+
+
 module.exports = {
-  createcategory,
+  createCategory,
+  getCategoryList,
+  deleteCategory
 };
