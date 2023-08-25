@@ -5,19 +5,24 @@ const { BookController } = require("../../controllers");
 
 const router = express.Router();
 
-/** create user */
+/** create Book */
 router.post(
   "/create-Book",
   // validate(userValidation.createUser),
   BookController.CreateBook
 );
 
+/** Get Book list */
+router.get(
+  "/list",
+  BookController.Booklist
+);
 
-// /** Get user list */
-// router.get(
-//   "/list",
-// //   validate(userValidation.getUserList),
-//   BookController.getUserList
-// );
+/** Get Book delete */
+
+router.delete(
+  "/delete/:BookId",
+  BookController.deleteRecord
+)
 
 module.exports = router;

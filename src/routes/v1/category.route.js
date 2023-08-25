@@ -5,19 +5,23 @@ const { categoryController } = require("../../controllers");
 
 const router = express.Router();
 
-/** create user */
+/** create category */
 router.post(
   "/create-category",
-  // validate(userValidation.createUser),
   categoryController.createCategory
 );
 
+/** Get category-list */
+router.get(
+  "/list",
+  categoryController.categoryList
+  );
 
-/** Get user list */
-// router.get(
-//   "/list",
-//   // validate(userValidation.getUserList),
-//   userController.getUserList
-// );
+/** delete category-list */
+
+router.delete(
+  "/delete/:categoryId",
+  categoryController.deleteRecord
+)
 
 module.exports = router;
