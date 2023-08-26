@@ -3,7 +3,16 @@ const express = require("express");
 const userRoute = require("./user.route");
 const categoryRoute = require("./category.route");
 const BookRoute = require("./book.route");
-const GroceryRoute = require("./Grocery.route")
+const GroceryRoute = require("./Grocery.route");
+const MusicRoute = require("./Music.route");
+const MovieRoute = require("./Movie.route");
+const JewelleryRoute = require("./Jewellery.route");
+const HotelRoute = require("./Hotel.route");
+const StationaryRoute = require("./Stationary.route");
+const BusRoute = require("./Bus.route");
+const PharmacyRoute = require("./Pharmacy.route");
+const TravelRoute = require("./Travel.route");
+const SchoolRoute = require("./School.route");
 
 const router = express.Router();
 
@@ -11,6 +20,15 @@ const router = express.Router();
 router.use("/user", userRoute);
 router.use("/category", categoryRoute);
 router.use("/Book", BookRoute);
-router.use("/Grocery",GroceryRoute)
+router.use("/Grocery",GroceryRoute);
+router.use("/Music",MusicRoute);
+router.use("/Movie",MovieRoute);
+router.use("/Jewellery",JewelleryRoute);
+router.use("/Hotel",HotelRoute);
+router.use("/Stationary",StationaryRoute);
+router.use("/Bus",BusRoute);
+router.use("/Pharmacy",PharmacyRoute);
+router.use("/Travel",TravelRoute);
+router.use("/School",SchoolRoute);
 
 module.exports = router;

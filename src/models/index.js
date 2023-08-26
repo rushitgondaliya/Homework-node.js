@@ -2,5 +2,13 @@ module.exports.User=require("./user.model");
 module.exports.product=require("./product.model");
 module.exports.category=require("./category.model");
 module.exports.Book=require("./Book.model");
-module.exports.Grocery=require("./Grocery.model")
-
+module.exports.Grocery=require("./Grocery.model");
+module.exports.Music=require("./Music.model");
+module.exports.Movie=require("./movie.model");
+module.exports.Jewellery=require("./Jewellery.model");
+module.exports.Hotel=require("./Hotel.model");
+module.exports.Stationary=require("./Stationary.model");
+module.exports.Bus=require("./Bus.model");
+module.exports.Pharmacy=require("./Pharmacy.model");
+module.exports.Travel=require("./Travel.model");
+module.exports.School=require("./School.model");
