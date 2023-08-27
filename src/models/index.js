@@ -1,4 +1,4 @@
-module.exports.User=require("./user.model");
+module.exports.user=require("./user.model");
 module.exports.product=require("./product.model");
 module.exports.category=require("./category.model");
 module.exports.Book=require("./Book.model");

@@ -1,5 +1,6 @@
 module.exports.userService = require("./user.service");
 module.exports.categoryService = require("./category.service");
+module.exports.productService = require("./product.services");
 module.exports.BookService = require("./Book.service");
 module.exports.Groceryservice = require("./Grocery.service");
 module.exports.Musicservice = require("./music.service");
@@ -11,3 +12,4 @@ module.exports.Busservice = require("./Bus.service");
 module.exports.Pharmacyservice = require("./Pharmacy.service");
 module.exports.Travelservice = require("./Travel.service");
 module.exports.Schoolservice = require("./School.service");
+module.exports.ecommerceService = require("./e-commerce.services");
