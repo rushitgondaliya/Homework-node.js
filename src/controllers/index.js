@@ -1,4 +1,5 @@
 module.exports.userController = require("./user.controllers");
+module.exports.productController = require("./product.controller");
 module.exports.categoryController = require("./category.controller");
 module.exports.BookController = require("./Book.controller");
 module.exports.Grocerycontroller = require("./Grocery.controller");
@@ -11,6 +12,7 @@ module.exports.Buscontroller = require("./Bus.controller");
 module.exports.Pharmacycontroller = require("./Pharmacy.controller");
 module.exports.Travelcontroller = require("./Travel.controller");
 module.exports.Schoolcontroller = require("./School.controller");
+module.exports.ecommercecontroller = require("./e-commerce.controller");
 
 
 

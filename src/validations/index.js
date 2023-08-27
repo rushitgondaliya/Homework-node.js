@@ -1,5 +1,6 @@
 module.exports.userValidation = require("./user.validation");
 module.exports.categoryValidation = require("./category.validation");
+module.exports.ProductValidation = require("./product.validation");
 module.exports.BookValidation = require("./Book.validation");
 module.exports.Groceryvalidation = require("./Grocery.validation");
 module.exports.Musicvalidation = require("./Music.validation");
