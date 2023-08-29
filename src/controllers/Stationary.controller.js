@@ -43,6 +43,49 @@ const Stationarylist = async (req, res) => {
     }
 };
 
+/** Get Stationary details by id */
+
+const getStationaryDetails = async (req, res) => {
+    try {
+        const getDetails = await Stationaryservice.getStationaryById(
+            req.params.StationaryId
+        );
+        if (!getDetails) {
+            throw new Error("Stationary not found!");
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Stationary details get successfully!",
+            data: getDetails,
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+  };
+
+  /* update Stationary */
+  const updateStationary = async (req, res) => {
+    try {
+        const StationaryId = req.params.StationaryId;
+
+        const StationaryExists = await Stationaryservice.getStationarylist(StationaryId);
+        if (!StationaryExists) {
+            throw new Error("Stationary not found!");
+        }
+        await Stationaryservice.updateDetails(StationaryId, req.body);
+        res.status(200).json({
+            success: true,
+            message: "Stationary details update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+  };
+
 /* delete Stationary */
 
 const deleteStationary = async (req, res) => {
@@ -69,5 +112,7 @@ const deleteStationary = async (req, res) => {
 module.exports = {
     createStationary,
     Stationarylist,
+    getStationaryDetails,
+    updateStationary,
     deleteStationary
 }

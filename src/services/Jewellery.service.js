@@ -14,6 +14,14 @@ const getJewellerylist = async(req , res) => {
     return Jewellery.find({$or: [{Jewellery_Name :"ring" }]});
 }
 
+const getJewelleryById = async (JewelleryId) => {
+    return Jewellery.findById(JewelleryId);
+};
+
+const updateDetails = async (JewelleryId, updateBody) => {
+    return Jewellery.findByIdAndUpdate(JewelleryId, { $set: updateBody });
+};
+
 const deleteJewellery = async(JewelleryId) => {
     return Jewellery.findByIdAndDelete(JewelleryId);
 }
@@ -21,5 +29,7 @@ const deleteJewellery = async(JewelleryId) => {
 module.exports ={
     createJewellery,
     getJewellerylist,
+    getJewelleryById,
+    updateDetails,
     deleteJewellery
 }

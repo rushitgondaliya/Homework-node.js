@@ -8,7 +8,6 @@ const router = express.Router();
 /** create Book */
 router.post(
   "/create-Book",
-  // validate(userValidation.createUser),
   BookController.CreateBook
 );
 
