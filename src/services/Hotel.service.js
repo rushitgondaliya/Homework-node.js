@@ -12,14 +12,24 @@ const createHotel = async(reqBody) => {
 
 const getHotellist = async(req , res) => {
     return Hotel.find({$or: [{Customer_name :"rushit" }]});
-}
+};
+
+const getHotelById = async (HotelId) => {
+    return Hotel.findById(HotelId);
+};
+
+const updateDetails = async (HotelId, updateBody) => {
+    return Hotel.findByIdAndUpdate(HotelId, { $set: updateBody });
+};
 
 const deleteHotel = async(HotelId) => {
     return Hotel.findByIdAndDelete(HotelId);
-}
+};
 
 module.exports ={
     createHotel,
     getHotellist,
+    getHotelById,
+    updateDetails,
     deleteHotel
 }

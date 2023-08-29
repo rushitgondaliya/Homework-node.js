@@ -43,6 +43,51 @@ const Jewellerylist = async (req, res) => {
     }
 };
 
+/** Get Jewellery details by id */
+
+const getJewelleryDetails = async (req, res) => {
+    try {
+        const getDetails = await Jewelleryservice.getJewelleryById(
+            req.params.JewelleryId
+        );
+        if (!getDetails) {
+            throw new Error("Jewellery not found!");
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Jewellery details get successfully!",
+            data: getDetails,
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+/* update Jewellery */
+const updateJewellery = async (req, res) => {
+    try {
+        const JewelleryId = req.params.JewelleryId;
+
+        const JewelleryExists = await Jewelleryservice.getJewellerylist(JewelleryId);
+        if (!JewelleryExists) {
+            throw new Error("Jewellery not found!");
+        }
+
+        await Jewelleryservice.updateDetails(JewelleryId, req.body);
+
+        res.status(200).json({
+            success: true,
+            message: "Jewellery details update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
 /* delete Jewellery */
 
 const deleteJewellery = async (req, res) => {
@@ -58,16 +103,18 @@ const deleteJewellery = async (req, res) => {
             success: true,
             message: "Jewellery delete successfully!",
         });
-    }catch (error) {
+    } catch (error) {
         res.status(400).json({
-          success: false,
-          message: error.message,
+            success: false,
+            message: error.message,
         });
-      }
+    }
 }
 
 module.exports = {
     createJewellery,
     Jewellerylist,
+    getJewelleryDetails,
+    updateJewellery,
     deleteJewellery
 }

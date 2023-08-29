@@ -43,6 +43,52 @@ const Hotellist = async (req, res) => {
     }
 };
 
+
+/** Get Hotel details by id */
+
+const getHotelDetails = async (req, res) => {
+    try {
+        const getDetails = await Hotelservice.getHotelById(
+            req.params.HotelId
+        );
+        if (!getDetails) {
+            throw new Error("Hotel not found!");
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Hotel details get successfully!",
+            data: getDetails,
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+/* update Hotel */
+const updateHotel = async (req, res) => {
+    try {
+        const HotelId = req.params.HotelId;
+
+        const HotelExists = await Hotelservice.getHotellist(HotelId);
+        if (!HotelExists) {
+            throw new Error("Hotel not found!");
+        }
+
+        await Hotelservice.updateDetails(HotelId, req.body);
+
+        res.status(200).json({
+            success: true,
+            message: "Hotel details update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
 /* delete Hotel */
 
 const deleteHotel = async (req, res) => {
@@ -69,5 +115,7 @@ const deleteHotel = async (req, res) => {
 module.exports = {
     createHotel,
     Hotellist,
+    getHotelDetails,
+    updateHotel,
     deleteHotel
 }

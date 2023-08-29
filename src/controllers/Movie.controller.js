@@ -43,6 +43,51 @@ const Movielist = async (req, res) => {
     }
 };
 
+/** Get Movie details by id */
+
+const getMovieDetails = async (req, res) => {
+    try {
+        const getDetails = await Movieservice.getMovieById(
+            req.params.MovieId
+        );
+        if (!getDetails) {
+            throw new Error("Movie not found!");
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Movie details get successfully!",
+            data: getDetails,
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+/* update Movie */
+const updateMovie = async (req, res) => {
+    try {
+        const MovieId = req.params.MovieId;
+
+        const MovieExists = await Movieservice.getMovielist(MovieId);
+        if (!MovieExists) {
+            throw new Error("Movie not found!");
+        }
+
+        await Movieservice.updateDetails(MovieId, req.body);
+
+        res.status(200).json({
+            success: true,
+            message: "Movie details update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
 /* delete Movie */
 
 const deleteMovie = async (req, res) => {
@@ -69,5 +114,7 @@ const deleteMovie = async (req, res) => {
 module.exports = {
     createMovie,
     Movielist,
+    getMovieDetails,
+    updateMovie,
     deleteMovie
 }

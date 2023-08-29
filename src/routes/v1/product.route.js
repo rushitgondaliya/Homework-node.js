@@ -19,6 +19,18 @@ router.get(
   productController.getProductList
 );
 
+/** Get product details by id */
+router.get(
+  "/get-details/:productId",
+  productController.getproductDetails
+);
+
+/** update product */
+router.put(
+  "/update-product/:productId",
+  productController.updateproduct
+);
+
 /**  Delete product */
 router.delete(
   "/delete-product/:productId",

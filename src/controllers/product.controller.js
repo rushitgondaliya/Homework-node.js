@@ -23,6 +23,7 @@ const createProduct = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
+
 /** get product list */
 const getProductList = async (req, res) => {
   try {
@@ -37,6 +38,52 @@ const getProductList = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
+
+/** Get Product details by id */
+
+const getproductDetails = async (req, res) => {
+  try {
+      const getDetails = await productService.getproductById(
+          req.params.ProductId
+      );
+      if (!getDetails) {
+          throw new Error("Product not found!");
+      }
+
+      res.status(200).json({
+          success: true,
+          message: "Product details get successfully!",
+          data: getDetails,
+      });
+  } catch (error) {
+      res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+/* update Product */
+const updateproduct = async (req, res) => {
+  try {
+      const productId = req.params.productId;
+
+      const ProductExists = await productService.getProductList(productId);
+      if (!ProductExists) {
+          throw new Error("Product not found!");
+      }
+
+      await productService.updateDetails(productId, req.body);
+
+      res.status(200).json({
+          success: true,
+          message: "Product details update successfully!",
+      });
+  } catch (error) {
+      res.status(400).json({
+          success: false,
+          message: error.message,
+      });
+  }
+};
+
 /** Delete product */
 const deleteproduct = async (req, res) => {
   try {
@@ -60,5 +107,7 @@ const deleteproduct = async (req, res) => {
 module.exports = {
   createProduct,
   getProductList,
+  getproductDetails,
+  updateproduct,
   deleteproduct
 };

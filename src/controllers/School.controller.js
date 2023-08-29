@@ -43,6 +43,49 @@ const Schoollist = async (req, res) => {
     }
 };
 
+/** Get School details by id */
+
+const getSchoolDetails = async (req, res) => {
+    try {
+        const getDetails = await Schoolservice.getSchoolById(
+            req.params.SchoolId
+        );
+        if (!getDetails) {
+            throw new Error("School not found!");
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "School details get successfully!",
+            data: getDetails,
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+  };
+
+  /* update School */
+  const updateSchool = async (req, res) => {
+    try {
+        const SchoolId = req.params.SchoolId;
+
+        const SchoolExists = await Schoolservice.getSchoollist(SchoolId);
+        if (!SchoolExists) {
+            throw new Error("School not found!");
+        }
+        await Schoolservice.updateDetails(SchoolId, req.body);
+        res.status(200).json({
+            success: true,
+            message: "School details update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+  };
+
 /* delete School */
 
 const deleteSchool = async (req, res) => {
@@ -69,5 +112,7 @@ const deleteSchool = async (req, res) => {
 module.exports = {
     createSchool,
     Schoollist,
+    getSchoolDetails,
+    updateSchool,
     deleteSchool
 }

@@ -17,11 +17,23 @@ router.get(
   categoryController.categoryList
   );
 
-/** delete category-list */
+/** Get user details by id */
+router.get(
+  "/get-details/:categoryId",
+  categoryController.getCategoryDetails
+);
 
+/** delete category */
 router.delete(
   "/delete/:categoryId",
   categoryController.deleteRecord
+);
+
+router.put(
+  "/update-category/:categoryId",
+  categoryController.updatecategory
 )
+
+
 
 module.exports = router;

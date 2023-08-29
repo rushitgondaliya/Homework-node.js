@@ -13,13 +13,22 @@ const getCategoryList = async (req, res) => {
   return category.find()
 };
 
+const getCategoryById = async (categoryId) => {
+  return category.findById(categoryId);
+};
+
 const deleteCategory = async (categoryId) => {
   return category.findByIdAndDelete(categoryId);
 };
 
+const updateDetails = async (categoryId, updateBody) => {
+  return category.findByIdAndUpdate(categoryId, { $set: updateBody });
+};
 
 module.exports = {
   createCategory,
   getCategoryList,
-  deleteCategory
+  getCategoryById,
+  deleteCategory,
+  updateDetails
 };
