@@ -3,32 +3,32 @@ const mongoose = require('mongoose');
 
 const JewellerySchema = new mongoose.Schema(
     {
-        Jewellery_Name:{
+        Jewellery_Name: {
             type: String,
             trim: true,
         },
-        Jewellery_buyer_name:{
+        Jewellery_buyer_name: {
             type: String,
             trim: true,
         },
-        Jewellery_caret:{
+        Jewellery_caret: {
             type: Number,
-            trim:true,
+            trim: true,
         },
-        Jewellery_wight:{
+        Jewellery_wight: {
             type: String,
-            trim:true,
+            trim: true,
         },
-        Jewellery_price:{
+        Jewellery_price: {
             type: Number,
-            trim:true,
+            trim: true,
         },
     },
     {
-        timestamps:true,
-        versionKey:false,
+        timestamps: true,
+        versionKey: false,
     }
 );
 
-const Jewellery=mongoose.model("Jewellery",JewellerySchema)
+const Jewellery = mongoose.model("Jewellery", JewellerySchema)
 module.exports = Jewellery
