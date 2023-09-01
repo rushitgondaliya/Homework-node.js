@@ -2,28 +2,28 @@ const mongoose = require('mongoose');
 
 const MusicSchema = new mongoose.Schema(
     {
-        Music_Name:{
+        Music_Name: {
             type: String,
             trim: true,
         },
-        Music_type:{
+        Music_type: {
             type: String,
             trim: true,
         },
-        Singer_Name:{
+        Singer_Name: {
             type: String,
-            trim:true,
+            trim: true,
         },
-        Director_Name:{
+        Director_Name: {
             type: String,
-            trim:true,
+            trim: true,
         }
     },
     {
-        timestamps:true,
-        versionKey:false,
+        timestamps: true,
+        versionKey: false,
     }
 );
 
-const Music=mongoose.model("Music",MusicSchema)
+const Music = mongoose.model("Music", MusicSchema)
 module.exports = Music

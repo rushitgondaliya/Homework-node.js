@@ -3,32 +3,36 @@ const mongoose = require('mongoose');
 
 const TravelSchema = new mongoose.Schema(
     {
-        Travel_Type:{
+        Travel_Type: {
             type: String,
             trim: true,
         },
-        Travel_From:{
+        Travel_From: {
             type: String,
             trim: true,
         },
-        Travel_To:{
+        Travel_To: {
             type: String,
-            trim:true,
+            trim: true,
         },
-        Travel_Date:{
+        Travel_Date: {
             type: String,
-            trim:true,
+            trim: true,
         },
-        Travel_Return:{
+        Travel_Return: {
             type: String,
-            trim:true,
+            trim: true,
+        },
+        Bus: {
+            type: mongoose.Types.ObjectId,
+            ref: "Bus"
         },
     },
     {
-        timestamps:true,
-        versionKey:false,
+        timestamps: true,
+        versionKey: false,
     }
 );
 
-const Travel=mongoose.model("Travel",TravelSchema)
+const Travel = mongoose.model("Travel", TravelSchema)
 module.exports = Travel

@@ -1,9 +1,9 @@
 const express = require("express");
-// const tokenRoutes = require("./token.route");
+// const tokenRoutes = require("./Token.route");
 const userRoute = require("./user.route");
 const categoryRoute = require("./category.route");
 const productRoute = require("./product.route");
-const BookRoute = require("./book.route"); 
+const BookRoute = require("./book.route");
 const GroceryRoute = require("./Grocery.route");
 const MusicRoute = require("./Music.route");
 const MovieRoute = require("./Movie.route");
@@ -33,6 +33,6 @@ router.use("/Bus",BusRoute);
 router.use("/Pharmacy",PharmacyRoute);
 router.use("/Travel",TravelRoute);
 router.use("/School",SchoolRoute);
-router.use("/e-commerce",ecommerceRoute)
+router.use("/e-commerce",ecommerceRoute);
 
 module.exports = router;

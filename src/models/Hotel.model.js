@@ -3,36 +3,40 @@ const mongoose = require('mongoose');
 
 const HotelSchema = new mongoose.Schema(
     {
-        Hotel_Name:{
+        Hotel_Name: {
             type: String,
             trim: true,
         },
-        Customer_name:{
+        Customer_name: {
             type: String,
             trim: true,
         },
-        Room_number:{
+        Room_number: {
             type: Number,
-            trim:true,
+            trim: true,
         },
-        Hotel_address:{
+        Hotel_address: {
             type: String,
-            trim:true,
+            trim: true,
         },
-        customer_checkin:{
+        customer_checkin: {
             type: String,
-            trim:true,
+            trim: true,
         },
-        customer_checkout:{
+        customer_checkout: {
             type: String,
-            trim:true,
+            trim: true,
+        },
+        Travel: {
+            type: mongoose.Types.ObjectId,
+            ref: "Travel"
         },
     },
     {
-        timestamps:true,
-        versionKey:false,
+        timestamps: true,
+        versionKey: false,
     }
 );
 
-const Hotel=mongoose.model("Hotel",HotelSchema)
+const Hotel = mongoose.model("Hotel", HotelSchema)
 module.exports = Hotel

@@ -2,32 +2,36 @@ const mongoose = require('mongoose')
 
 const GrocerySchema = new mongoose.Schema(
     {
-        Store_Name:{
+        Store_Name: {
             type: String,
             trim: true,
         },
-        Buyer_Name:{
+        Buyer_Name: {
             type: String,
             trim: true,
         },
-        Phone_Number:{
+        Phone_Number: {
             type: Number,
-            trim:true,
+            trim: true,
         },
-        Totle_Product:{
+        Totle_Product: {
             type: Number,
-            trim:true,
+            trim: true,
         },
-        Totle_Price:{
+        Totle_Price: {
             type: Number,
-            trim:true,
-        }
+            trim: true,
+        },
+        category: {
+            type: mongoose.Types.ObjectId,
+            ref: "category"
+        },
     },
     {
-        timestamps:true,
-        versionKey:false,
+        timestamps: true,
+        versionKey: false,
     }
 );
 
-const Grocery=mongoose.model("Grocery",GrocerySchema)
+const Grocery = mongoose.model("Grocery", GrocerySchema)
 module.exports = Grocery

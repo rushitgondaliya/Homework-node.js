@@ -19,6 +19,10 @@ const StationarySchema = new mongoose.Schema(
             type: String,
             trim:true,
         },
+        Book:{
+            type:mongoose.Types.ObjectId,
+            ref:"Book"
+          },
     },
     {
         timestamps:true,
